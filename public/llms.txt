@@ -1,0 +1,15 @@
+# KULT Salon
+
+> Premium unisex luxury salon in Mumbai offering hair, colour, skin, nails and bridal services.
+
+KULT is a Bandra-based salon focused on considered, precise, editorial-quality beauty work. The site presents services, artists, portfolio, loyalty programme, and online booking.
+
+## Pages
+
+- [Home](/): Brand introduction and service overview.
+- [Services](/services): Menu of hair, colour, skin, nails and bridal services with pricing.
+- [Team](/team): Profiles of KULT stylists and specialists.
+- [Gallery](/gallery): Portfolio of recent hair, colour, bridal, skin and nail work.
+- [Loyalty](/loyalty): KULT Rewards programme details and tiers.
+- [Contact](/contact): Location, hours, and contact form.
+- [Book](/book): Multi-step appointment booking.
