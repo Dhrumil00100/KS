@@ -76,7 +76,7 @@ export function SmoothScroll() {
     });
 
     const raf = window.requestAnimationFrame(() => {
-      const id = window.setTimeout(() => ScrollTrigger.refresh(), 200);
+      const id = window.setTimeout(() => ScrollTrigger.refresh(), 50);
       cleanupId = id;
     });
     let cleanupId: number | undefined;

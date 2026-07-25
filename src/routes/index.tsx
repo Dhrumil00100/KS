@@ -136,7 +136,7 @@ function About() {
       <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-6 md:grid-cols-2 md:items-center">
         <Reveal>
           <img
-            src="https://images.unsplash.com/photo-1560066984-138daaa0a5b2?w=1200&fit=crop&auto=format&q=70"
+            src="https://images.unsplash.com/photo-1560066984-138daaa0a5b2?w=800&fit=crop&auto=format&q=70"
             alt="Editorial portrait"
             className="h-[600px] w-full object-cover grayscale"
           loading="lazy" decoding="async" />

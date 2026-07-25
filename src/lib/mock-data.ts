@@ -27,9 +27,9 @@ export type Staff = {
 };
 
 export const staff: Staff[] = [
-  { id: "1", name: "Aisha Khan", role: "Creative Director", experience: 11, specialisations: ["Balayage", "Editorial Colour", "Bridal"], photo: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=800&fit=crop&auto=format&q=70", bio: "11 years between Mumbai and Dubai. Aisha builds colour from the inside out." },
-  { id: "2", name: "Rohan Seth", role: "Senior Stylist", experience: 8, specialisations: ["Precision Cuts", "Texture", "Men's Grooming"], photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=800&fit=crop&auto=format&q=70", bio: "Structure first. Rohan's cuts work from wash-and-go to red carpet." },
-  { id: "3", name: "Priya Nair", role: "Skin & Beauty Specialist", experience: 7, specialisations: ["Hydrafacial", "Nail Art", "Anti-Ageing"], photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=800&fit=crop&auto=format&q=70", bio: "Radiant skin is the best look. Priya has been proving it for 7 years." },
+  { id: "1", name: "Aisha Khan", role: "Creative Director", experience: 11, specialisations: ["Balayage", "Editorial Colour", "Bridal"], photo: "https://images.unsplash.com/photo-1580618672591-eb180b1a973f?w=600&fit=crop&auto=format&q=70", bio: "11 years between Mumbai and Dubai. Aisha builds colour from the inside out." },
+  { id: "2", name: "Rohan Seth", role: "Senior Stylist", experience: 8, specialisations: ["Precision Cuts", "Texture", "Men's Grooming"], photo: "https://images.unsplash.com/photo-1560250097-0b93528c311a?w=600&fit=crop&auto=format&q=70", bio: "Structure first. Rohan's cuts work from wash-and-go to red carpet." },
+  { id: "3", name: "Priya Nair", role: "Skin & Beauty Specialist", experience: 7, specialisations: ["Hydrafacial", "Nail Art", "Anti-Ageing"], photo: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&fit=crop&auto=format&q=70", bio: "Radiant skin is the best look. Priya has been proving it for 7 years." },
 ];
 
 export const testimonials = [
@@ -39,18 +39,18 @@ export const testimonials = [
 ];
 
 export const galleryImages = [
-  { id: "1", url: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&fit=crop&auto=format&q=70", category: "Colour" },
-  { id: "2", url: "https://images.unsplash.com/photo-1560066984-138daaa0a5b2?w=800&fit=crop&auto=format&q=70", category: "Hair" },
-  { id: "3", url: "https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=800&fit=crop&auto=format&q=70", category: "Bridal" },
-  { id: "4", url: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=800&fit=crop&auto=format&q=70", category: "Nails" },
-  { id: "5", url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=800&fit=crop&auto=format&q=70", category: "Skin" },
-  { id: "6", url: "https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=800&fit=crop&auto=format&q=70", category: "Colour" },
-  { id: "7", url: "https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=800&fit=crop&auto=format&q=70", category: "Hair" },
-  { id: "8", url: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=800&fit=crop&auto=format&q=70", category: "Skin" },
-  { id: "9", url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=800&fit=crop&auto=format&q=70", category: "Bridal" },
-  { id: "10", url: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=800&fit=crop&auto=format&q=70", category: "Nails" },
-  { id: "11", url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=800&fit=crop&auto=format&q=70", category: "Hair" },
-  { id: "12", url: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=800&fit=crop&auto=format&q=70", category: "Colour" },
+  { id: "1", url: "https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=600&fit=crop&auto=format&q=70", category: "Colour" },
+  { id: "2", url: "https://images.unsplash.com/photo-1560066984-138daaa0a5b2?w=600&fit=crop&auto=format&q=70", category: "Hair" },
+  { id: "3", url: "https://images.unsplash.com/photo-1519735777090-ec97162dc266?w=600&fit=crop&auto=format&q=70", category: "Bridal" },
+  { id: "4", url: "https://images.unsplash.com/photo-1604654894610-df63bc536371?w=600&fit=crop&auto=format&q=70", category: "Nails" },
+  { id: "5", url: "https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?w=600&fit=crop&auto=format&q=70", category: "Skin" },
+  { id: "6", url: "https://images.unsplash.com/photo-1634449571010-02389ed0f9b0?w=600&fit=crop&auto=format&q=70", category: "Colour" },
+  { id: "7", url: "https://images.unsplash.com/photo-1522338140262-f46f5913618a?w=600&fit=crop&auto=format&q=70", category: "Hair" },
+  { id: "8", url: "https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=600&fit=crop&auto=format&q=70", category: "Skin" },
+  { id: "9", url: "https://images.unsplash.com/photo-1519014816548-bf5fe059798b?w=600&fit=crop&auto=format&q=70", category: "Bridal" },
+  { id: "10", url: "https://images.unsplash.com/photo-1594744803329-e58b31de8bf5?w=600&fit=crop&auto=format&q=70", category: "Nails" },
+  { id: "11", url: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=600&fit=crop&auto=format&q=70", category: "Hair" },
+  { id: "12", url: "https://images.unsplash.com/photo-1526045612212-70caf35c14df?w=600&fit=crop&auto=format&q=70", category: "Colour" },
 ];
 
 export const mockLoyalty = {

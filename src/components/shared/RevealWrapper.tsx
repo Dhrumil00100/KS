@@ -22,21 +22,23 @@ export function Reveal({ children, className }: { children: ReactNode; className
     const ctx = gsap.context(() => {
       gsap.fromTo(
         el,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.55,
           ease: "power3.out",
           scrollTrigger: {
             trigger: el,
-            start: "top 88%",
+            start: "top 96%",
             toggleActions: "play none none reverse",
             invalidateOnRefresh: true,
           },
         }
       );
     }, el);
+
+    ScrollTrigger.refresh();
 
     return () => ctx.revert();
   }, []);
@@ -67,22 +69,24 @@ export function RevealStagger({ children, className }: { children: ReactNode; cl
     const ctx = gsap.context(() => {
       gsap.fromTo(
         targets,
-        { opacity: 0, y: 40 },
+        { opacity: 0, y: 30 },
         {
           opacity: 1,
           y: 0,
-          duration: 0.8,
+          duration: 0.55,
           ease: "power3.out",
-          stagger: 0.12,
+          stagger: 0.07,
           scrollTrigger: {
             trigger: el,
-            start: "top 88%",
+            start: "top 96%",
             toggleActions: "play none none reverse",
             invalidateOnRefresh: true,
           },
         }
       );
     }, el);
+
+    ScrollTrigger.refresh();
 
     return () => ctx.revert();
   }, []);
