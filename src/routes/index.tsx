@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
 import { useEffect, useState } from "react";
-import { ChevronRight, Star } from "lucide-react";
+import { ChevronRight, Star, Scissors, Palette, Sparkles, Crown } from "lucide-react";
 import { Marquee } from "@/components/shared/Marquee";
 import { SectionEyebrow } from "@/components/shared/SectionEyebrow";
 import { Reveal, RevealStagger, RevealItem } from "@/components/shared/RevealWrapper";
@@ -43,7 +43,7 @@ function Hero() {
         <div className="relative z-10 md:col-span-7">
           <motion.div initial="hidden" animate="visible" variants={heroLift} className="flex items-center gap-4">
             <div className="h-[2px] w-12 bg-kult-red" />
-            <SectionEyebrow>Est. 2016 · Mumbai</SectionEyebrow>
+            <SectionEyebrow>Est. 2016 · Ahmedabad</SectionEyebrow>
           </motion.div>
           <motion.h1
             initial="hidden"
@@ -133,38 +133,81 @@ function Hero() {
 function About() {
   return (
     <section className="bg-kult-offwhite py-24 md:py-32">
-      <div className="mx-auto grid max-w-[1400px] grid-cols-1 gap-14 px-6 md:grid-cols-2 md:items-center">
+      <div className="mx-auto max-w-[1400px] px-6">
         <Reveal>
-          <img
-            src="https://images.unsplash.com/photo-1560066984-138daaa0a5b2?w=800&fit=crop&auto=format&q=70"
-            alt="Editorial portrait"
-            className="h-[600px] w-full object-cover grayscale"
-          loading="lazy" decoding="async" />
-        </Reveal>
-        <Reveal>
-          <SectionEyebrow>Our Philosophy</SectionEyebrow>
-          <h2 className="mt-4 font-display text-5xl leading-[1] text-kult-black md:text-6xl">
-            Beauty with an edge.
-          </h2>
-          <p className="mt-6 max-w-lg text-kult-black">
-            KULT is a house built on point of view. We don't chase trends. We shape looks that make sense on you — considered, precise, and worth keeping.
-          </p>
-          <p className="mt-4 max-w-lg text-kult-black">
-            Every chair, every service, every artist here works to a single standard: we're only good if you look like the best version of yourself walking out.
-          </p>
-          <div className="mt-10 grid grid-cols-3 gap-4">
-            {[
-              { n: "9+", l: "Years" },
-              { n: "3,200+", l: "Clients" },
-              { n: "5", l: "Awards" },
-            ].map((s) => (
-              <div key={s.l}>
-                <div className="font-display text-4xl text-kult-red md:text-5xl">{s.n}</div>
-                <div className="mt-1 font-heading text-[11px] uppercase tracking-[0.2em] text-kult-gray">{s.l}</div>
-              </div>
-            ))}
+          <div className="max-w-4xl">
+            <SectionEyebrow>About KULT Salon</SectionEyebrow>
+            <h2 className="mt-4 font-display text-5xl leading-[1.1] text-kult-black md:text-7xl">
+              AHMEDABAD&apos;S PREMIER UNISEX LUXURY HAIR &amp; BEAUTY SALON
+            </h2>
           </div>
         </Reveal>
+
+        <Reveal>
+          <div className="mt-12 grid grid-cols-1 gap-8 border-t border-kult-black/10 pt-10 md:grid-cols-2 md:gap-16">
+            <p className="font-heading text-lg font-medium leading-relaxed text-neutral-800 md:text-xl">
+              Established in 2016, KULT Salon has redefined luxury beauty care in Ahmedabad. We reject generic templates and focus on precision haircutting, custom color placement, and revitalizing skin treatments tailored to your unique identity.
+            </p>
+            <div className="flex flex-col justify-between">
+              <p className="font-body text-base leading-relaxed text-neutral-600">
+                Our team of award-winning stylists, color specialists, and beauty experts use state-of-the-art products and techniques. Whether you are looking for a signature balayage, a luxury bridal makeover, or advanced nail artistry, KULT delivers unmatched quality with an uncompromising attention to detail. We combine aesthetics with science to bring you the best in beauty and wellness.
+              </p>
+              <div className="mt-8 flex flex-wrap gap-4">
+                <Link
+                  to="/services"
+                  className="border border-kult-black bg-kult-black px-6 py-3 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-kult-white transition-colors duration-150 hover:bg-transparent hover:text-kult-black"
+                >
+                  Explore Services
+                </Link>
+                <Link
+                  to="/book"
+                  className="border border-kult-red bg-transparent px-6 py-3 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-kult-red transition-colors duration-150 hover:bg-kult-red hover:text-kult-white"
+                >
+                  Book Appointment
+                </Link>
+              </div>
+            </div>
+          </div>
+        </Reveal>
+
+        <RevealStagger className="mt-16 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+          {[
+            {
+              icon: <Scissors size={28} className="text-kult-red" />,
+              title: "Precision Hair Crafting",
+              desc: "Bespoke unisex haircuts, editorial hair styling, and restorative hair spa therapies tailored by Ahmedabad's top hair stylists.",
+            },
+            {
+              icon: <Palette size={28} className="text-kult-red" />,
+              title: "Master Colour & Balayage",
+              desc: "Premium hair colouring, hand-painted balayage highlights, gloss treatments, and advanced colour corrections.",
+            },
+            {
+              icon: <Sparkles size={28} className="text-kult-red" />,
+              title: "Advanced Skin Therapies",
+              desc: "Rejuvenating clinical facials, customized skin care routines, and advanced cosmetic treatments for a radiant glow.",
+            },
+            {
+              icon: <Crown size={28} className="text-kult-red" />,
+              title: "Editorial Bridal & Nails",
+              desc: "Stunning bridal makeup packages, luxury gel nail art, couture styling, and manicure-pedicure rituals.",
+            },
+          ].map((item, idx) => (
+            <RevealItem key={idx}>
+              <div className="h-full border border-kult-black/10 bg-white p-8 transition-all duration-300 hover:border-kult-red hover:shadow-md">
+                <div className="mb-6 inline-block rounded-none bg-kult-offwhite p-3">
+                  {item.icon}
+                </div>
+                <h3 className="font-display text-2xl uppercase tracking-wider text-kult-black">
+                  {item.title}
+                </h3>
+                <p className="mt-3 font-body text-sm leading-relaxed text-neutral-600">
+                  {item.desc}
+                </p>
+              </div>
+            </RevealItem>
+          ))}
+        </RevealStagger>
       </div>
     </section>
   );

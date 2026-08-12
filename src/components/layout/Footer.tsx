@@ -34,8 +34,8 @@ export function Footer() {
         <div>
           <h4 className="font-heading text-[11px] font-semibold uppercase tracking-[0.25em] text-kult-red">Contact</h4>
           <ul className="mt-4 space-y-2 text-sm text-kult-gray">
-            <li>12 Linking Road, Bandra West</li>
-            <li>Mumbai 400050</li>
+            <li>12 Sindhu Bhavan Road, Bodakdev</li>
+            <li>Ahmedabad 380054</li>
             <li>+91 98765 43210</li>
             <li>hello@kultsalon.com</li>
           </ul>

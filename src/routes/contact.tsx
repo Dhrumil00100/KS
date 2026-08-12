@@ -30,7 +30,7 @@ function ContactPage() {
             <MapPin className="text-kult-red" size={22} />
             <div>
               <div className="font-heading text-[11px] uppercase tracking-[0.25em] text-kult-gray">Address</div>
-              <div className="mt-1 text-sm">12 Linking Road, Bandra West, Mumbai 400050</div>
+              <div className="mt-1 text-sm">12 Sindhu Bhavan Road, Bodakdev, Ahmedabad 380054</div>
             </div>
           </li>
           <li className="flex gap-4">
@@ -72,7 +72,7 @@ function ContactPage() {
         </div>
 
         <div className="relative mt-10 h-52 w-full max-w-md overflow-hidden bg-[#111]">
-          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&fit=crop&auto=format&q=70" alt="Location map for KULT Salon in Bandra West, Mumbai" className="h-full w-full object-cover opacity-60" loading="lazy" decoding="async" />
+          <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?w=800&fit=crop&auto=format&q=70" alt="Location map for KULT Salon in Bodakdev, Ahmedabad" className="h-full w-full object-cover opacity-60" loading="lazy" decoding="async" />
           <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2">
             <MapPin size={36} className="text-kult-red" fill="currentColor" />
           </div>
