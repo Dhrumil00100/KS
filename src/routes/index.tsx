@@ -122,10 +122,6 @@ function Hero() {
         </motion.div>
       </div>
 
-      <div className="absolute bottom-6 right-6 z-10 hidden flex-col items-center gap-2 md:flex">
-        <div className="h-10 w-[2px] bg-kult-red" />
-        <div className="font-heading text-[10px] uppercase tracking-[0.3em] text-kult-white">Scroll</div>
-      </div>
     </section>
   );
 }
