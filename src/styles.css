@@ -29,7 +29,8 @@
   --color-kult-black: #000000;
   --color-kult-red: #E60012;
   --color-kult-white: #FFFFFF;
-  --color-kult-gray: #B8B8B8;
+  --color-kult-gray: #A3A3A3;
+  --color-kult-darkgray: #262626;
   --color-kult-offwhite: #F7F7F7;
 
   --font-display: "Bebas Neue", sans-serif;
@@ -70,17 +71,96 @@
     border-color: var(--color-border);
   }
 
-  html, body {
+  html {
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  body {
     background-color: var(--color-kult-white);
     color: var(--color-kult-black);
     font-family: var(--font-body);
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
   }
 
   h1, h2, h3, h4 {
     font-family: var(--font-display);
-    letter-spacing: 0.01em;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
   }
+
+  /* Accessible focus indicators */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  textarea:focus-visible,
+  select:focus-visible {
+    outline: 2px solid var(--color-kult-red);
+    outline-offset: 3px;
+  }
+}
+
+/* Container & Layout Utilities */
+@utility container-custom {
+  width: 100%;
+  max-width: 80rem; /* 1280px */
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+
+  @media (min-width: 640px) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+@utility section-padding {
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  @media (min-width: 640px) {
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+
+  @media (min-width: 1024px) {
+    padding-top: 7rem;
+    padding-bottom: 7rem;
+  }
+}
+
+/* Fluid Typography Helpers */
+@utility fluid-hero {
+  font-size: clamp(2.75rem, 8vw, 7.5rem);
+  line-height: 0.92;
+}
+
+@utility fluid-h1 {
+  font-size: clamp(2.5rem, 6vw, 5.5rem);
+  line-height: 0.95;
+}
+
+@utility fluid-h2 {
+  font-size: clamp(2rem, 4vw, 4rem);
+  line-height: 1;
+}
+
+@utility fluid-h3 {
+  font-size: clamp(1.25rem, 2.5vw, 2.25rem);
+  line-height: 1.1;
+}
+
+@utility touch-target {
+  min-height: 44px;
+  min-width: 44px;
 }
 
 @utility marquee-track {
@@ -92,9 +172,6 @@
   to { transform: translateX(-50%); }
 }
 
-@utility red-underline {
-  position: relative;
-}
 @utility hover-red-line {
   position: relative;
   &::after {
@@ -109,8 +186,21 @@
     transform-origin: right;
     transition: transform 0.25s ease;
   }
-  &:hover::after {
+  &:hover::after,
+  &:focus-visible::after {
     transform: scaleX(1);
     transform-origin: left;
+  }
+}
+
+/* Reduced Motion Accessibility */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
   }
 }

@@ -5,8 +5,8 @@ import { Menu, X } from "lucide-react";
 const NAV = [
   { to: "/", label: "HOME" },
   { to: "/services", label: "SERVICES" },
-  { to: "/team", label: "TEAM" },
-  { to: "/gallery", label: "GALLERY" },
+  { to: "/team", label: "ARTISTS" },
+  { to: "/gallery", label: "WORK" },
   { to: "/loyalty", label: "LOYALTY" },
   { to: "/contact", label: "CONTACT" },
 ] as const;
@@ -14,85 +14,135 @@ const NAV = [
 export function Navbar() {
   const [open, setOpen] = useState(false);
 
+  // Keyboard accessibility: ESC key to close mobile menu
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === "Escape" && open) {
+        setOpen(false);
+      }
+    };
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [open]);
+
+  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (open) {
       document.body.style.overflow = "hidden";
-      window.locomotiveScroll?.stop?.();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).locomotiveScroll?.stop?.();
     } else {
       document.body.style.overflow = "";
-      window.locomotiveScroll?.start?.();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).locomotiveScroll?.start?.();
     }
     return () => {
       document.body.style.overflow = "";
-      window.locomotiveScroll?.start?.();
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      (window as any).locomotiveScroll?.start?.();
     };
   }, [open]);
 
   return (
-    <header className="sticky top-0 z-50 bg-kult-black">
-      <div className="mx-auto flex h-16 max-w-[1400px] items-center justify-between px-6">
-        <Link to="/" className="font-display text-[28px] leading-none tracking-widest text-kult-white">
-          KULT
+    <header className="sticky top-0 z-50 border-b border-white/10 bg-kult-black/95 backdrop-blur-md">
+      <div className="container-custom flex h-20 items-center justify-between">
+        {/* Brand Logo */}
+        <Link
+          to="/"
+          className="flex items-center gap-2 font-display text-3xl tracking-widest text-kult-white focus-visible:outline-none"
+        >
+          <span>KULT</span>
+          <span className="text-kult-red">.</span>
         </Link>
 
-        <nav className="hidden items-center gap-8 md:flex">
+        {/* Desktop Navigation Links */}
+        <nav className="hidden items-center gap-8 md:flex" aria-label="Main Navigation">
           {NAV.map((n) => (
             <Link
               key={n.to}
               to={n.to}
-              className="hover-red-line font-heading text-[12px] font-semibold uppercase tracking-[0.2em] text-kult-white"
-              activeProps={{ style: { color: "#E60012" } }}
-              activeOptions={{ exact: true }}
+              className="hover-red-line font-heading text-xs font-semibold uppercase tracking-[0.2em] text-kult-white transition-colors hover:text-kult-white"
+              activeProps={{ className: "text-kult-red font-bold" }}
+              activeOptions={{ exact: n.to === "/" }}
             >
               {n.label}
             </Link>
           ))}
         </nav>
 
-        <div className="flex items-center gap-3">
+        {/* Desktop CTA & Mobile Toggle */}
+        <div className="flex items-center gap-4">
           <Link
             to="/book"
-            className="hidden border border-kult-red bg-kult-black px-5 py-2 font-heading text-[11px] font-semibold uppercase tracking-[0.2em] text-kult-white transition-colors duration-150 hover:bg-kult-red md:inline-block"
+            className="touch-target hidden items-center justify-center border border-kult-red bg-kult-red px-6 py-2.5 font-heading text-xs font-semibold uppercase tracking-[0.2em] text-kult-white transition-all duration-200 hover:bg-kult-black hover:text-kult-white sm:flex"
           >
             Book Now
           </Link>
+
           <button
-            aria-label="Menu"
-            onClick={() => setOpen(true)}
-            className="text-kult-white md:hidden"
+            type="button"
+            aria-label={open ? "Close Navigation Menu" : "Open Navigation Menu"}
+            aria-expanded={open}
+            aria-controls="mobile-navigation-drawer"
+            onClick={() => setOpen(!open)}
+            className="touch-target flex items-center justify-center text-kult-white hover:text-kult-red md:hidden focus-visible:outline-none"
           >
-            <Menu size={26} />
+            {open ? <X size={28} /> : <Menu size={28} />}
           </button>
         </div>
       </div>
 
+      {/* Mobile Drawer Menu */}
       {open && (
-        <div className="fixed inset-0 z-[60] flex flex-col bg-kult-black md:hidden">
-          <div className="h-[3px] w-full bg-kult-red" />
-          <div className="flex items-center justify-between px-6 h-16">
-            <span className="font-display text-[28px] tracking-widest text-kult-white">KULT</span>
-            <button aria-label="Close" onClick={() => setOpen(false)} className="text-kult-white">
-              <X size={28} />
+        <div
+          id="mobile-navigation-drawer"
+          role="dialog"
+          aria-modal="true"
+          aria-label="Mobile Navigation"
+          className="fixed inset-0 z-[60] flex flex-col bg-kult-black animate-in fade-in slide-in-from-top-4 duration-300 md:hidden"
+        >
+          <div className="h-1 w-full bg-kult-red" />
+          <div className="container-custom flex h-20 items-center justify-between">
+            <Link
+              to="/"
+              onClick={() => setOpen(false)}
+              className="font-display text-3xl tracking-widest text-kult-white"
+            >
+              KULT<span className="text-kult-red">.</span>
+            </Link>
+            <button
+              type="button"
+              aria-label="Close Navigation Menu"
+              onClick={() => setOpen(false)}
+              className="touch-target flex items-center justify-center text-kult-white hover:text-kult-red"
+            >
+              <X size={32} />
             </button>
           </div>
-          <nav className="flex flex-1 flex-col items-start gap-6 px-8 pt-10">
+
+          <nav className="container-custom flex flex-1 flex-col justify-center space-y-6 py-8">
             {NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
                 onClick={() => setOpen(false)}
-                className="font-display text-5xl uppercase tracking-wide text-kult-white"
+                className="font-display text-4xl uppercase tracking-wider text-kult-white transition-colors hover:text-kult-red"
+                activeProps={{ className: "text-kult-red" }}
+                activeOptions={{ exact: n.to === "/" }}
               >
                 {n.label}
               </Link>
             ))}
-            <Link
-              to="/book"
-              onClick={() => setOpen(false)}
-              className="mt-4 inline-block border border-kult-red bg-kult-red px-6 py-3 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-kult-white"
-            >
-              Book Now
-            </Link>
+
+            <div className="pt-6">
+              <Link
+                to="/book"
+                onClick={() => setOpen(false)}
+                className="touch-target flex w-full items-center justify-center border border-kult-red bg-kult-red py-4 font-heading text-sm font-semibold uppercase tracking-[0.2em] text-kult-white transition-all hover:bg-transparent"
+              >
+                Book An Appointment
+              </Link>
+            </div>
           </nav>
         </div>
       )}
